@@ -28,7 +28,7 @@ return function (context, players, reason, banDurationMinutes)
 		end
 
 		if player.Parent then
-			player:Kick("FSA Services | You have been temporarily banned for " .. banDurationMinutes .. " minutes by " .. moderatorName .. " due to: " .. tostring(reason))
+			player:Kick("You have been temporarily banned for " .. banDurationMinutes .. " minutes by " .. moderatorName .. " due to: " .. tostring(reason))
 		end
 	end
 
