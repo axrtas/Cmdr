@@ -18,7 +18,6 @@ return function(context)
 		humanoid.CameraSubject = humanoid
 		return "Camera reset to your original view."
 	else
-		-- If the camera isn't following another player
 		return "You are not currently viewing anyone."
 	end
 end
