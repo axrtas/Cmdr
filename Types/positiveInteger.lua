@@ -3,7 +3,7 @@ return function(registry)
 		Transform = function(text)
 			local num = tonumber(text)
 			if num and num > 0 and math.floor(num) == num then
-				return math.floor(num) -- Ensure it's always a whole number
+				return math.floor(num)
 			end
 			return nil, "Invalid distance. Please enter a positive whole number."
 		end;
