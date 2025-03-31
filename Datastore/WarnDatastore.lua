@@ -1,11 +1,11 @@
 game.Players.PlayerAdded:Connect(function(plr)
 local DataStoreService = game:GetService("DataStoreService")
-local warnDataStore = DataStoreService:GetDataStore("PlayerWarnings") -- DataStore for storing warnings
+local warnDataStore = DataStoreService:GetDataStore("PlayerWarnings")
 local WarningFolder = Instance.new("Folder")
 WarningFolder = Instance.new("Folder")
 WarningFolder.Name = "WarningsFolder"
 WarningFolder.Parent = plr
--- Function to get or set warning counts and reasons for a player
+		
 local function getWarnings(player)
 	local playerId = player.UserId
 	local success, storedData = pcall(function()
@@ -13,16 +13,16 @@ local function getWarnings(player)
 	end)
 
 	if success and storedData then
-		return storedData -- Return stored data which contains both count and reasons
+		return storedData
 	else
-		return { count = 0, reasons = {} }  -- Return a table with default values if not found
+		return { count = 0, reasons = {} }
 	end
 end
 
 local function setWarnings(player, warningData)
 	local playerId = player.UserId
 	local success, err = pcall(function()
-		warnDataStore:SetAsync(tostring(playerId), warningData)  -- Store both count and reasons
+		warnDataStore:SetAsync(tostring(playerId), warningData)
 	end)
 
 	if not success then
