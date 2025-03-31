@@ -21,7 +21,6 @@ return function(registry)
 		end
 	end
 
-	-- If tools are found, register them with Cmdr
 	if #ToolNames > 0 then
 		local toolsEnum = registry.Cmdr.Util.MakeEnumType("Tool", ToolNames)
 		registry:RegisterType("tools", toolsEnum)
