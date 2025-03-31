@@ -3,13 +3,11 @@ return function(context, players)
 	local executorName = executor and executor.Name or "Unknown Executor"
 	local removalMessage = ""
 
-	-- Iterate over all players
 	for _, player in pairs(players) do
 		if player and player.Character then
 			local character = player.Character
 			local toolsRemoved = 0
 
-			-- Iterate over the character's children to find and remove tools
 			for _, item in pairs(character:GetChildren()) do
 				if item:IsA("Tool") then
 					item:Destroy()
