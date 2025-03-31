@@ -13,14 +13,12 @@ headerEvent.OnClientEvent:Connect(function(message, executorName)
 		local mainFrame = headerGui:FindFirstChild("Main")
 		local messageLabel = mainFrame:FindFirstChild("TextLabel")
 
-		-- When message is empty, slide out the header (remove it from the screen)
 		if message == "" then
 				headerGui.Enabled = false
 				if messageLabel then
 					messageLabel.Text = ""
 				end
 		else
-			-- When there is a message, show it
 			if messageLabel then
 				messageLabel.Text = message
 			end
