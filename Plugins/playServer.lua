@@ -29,7 +29,6 @@ return function(context, audioId, looped)
 	end	
 	sound:Play()
 
-	-- Store the sound in the playerSounds table to manage it
 	playerSounds[player] = sound
 
 	return ("Playing Music ID: %s"):format(audioId)
