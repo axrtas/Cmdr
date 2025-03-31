@@ -1,5 +1,4 @@
 return function(context, targetPlayers)
-	-- If no player is provided, default to the executor
 	if #targetPlayers == 0 then
 		table.insert(targetPlayers, context.Executor)
 	end
@@ -11,13 +10,10 @@ return function(context, targetPlayers)
 			local character = targetPlayer.Character
 			local rootPart = character:FindFirstChild("HumanoidRootPart")
 
-			-- Save original position before respawning
 			local originalPosition = rootPart and rootPart.Position
 
-			-- Respawn the character
 			targetPlayer:LoadCharacter()
 
-			-- Restore the position after respawn
 			if originalPosition then
 				local newCharacter = targetPlayer.Character
 				if newCharacter then
