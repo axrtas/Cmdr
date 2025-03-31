@@ -12,7 +12,7 @@ game.Players.PlayerAdded:Connect(function(player)
 		local currentTime = os.time()
 
 		if currentTime < banData.expiresAt then
-			player:Kick("FSA Services | You have been temporarily banned  (" .. math.floor((banData.expiresAt - currentTime) / 60) .. ") by " .. banData.moderator .. " due to: " .. banData.reason)
+			player:Kick("You have been temporarily banned  (" .. math.floor((banData.expiresAt - currentTime) / 60) .. ") by " .. banData.moderator .. " due to: " .. banData.reason)
 		else
 			local successRemove, errorMessage = pcall(function()
 				banDataStore:RemoveAsync(userId)
