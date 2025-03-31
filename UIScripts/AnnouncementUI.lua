@@ -18,12 +18,11 @@ announcementEvent.OnClientEvent:Connect(function(message, executorName)
 		local executorImage = mainFrame:FindFirstChild("PlayerThumbnail")
 		local executorNameLabel = mainFrame:FindFirstChild("ExecutorName")
 		local messageLabel = mainFrame:FindFirstChild("TextLabel")
-		local executorRankLabel = mainFrame:FindFirstChild("ExecutorRank")  -- Executor rank label
+		local executorRankLabel = mainFrame:FindFirstChild("ExecutorRank")
 		countdownLabel = mainFrame:FindFirstChild("Countdown")
 
 		local executor = Players:FindFirstChild(executorName)
 		if executor then
-			-- Get executor's user ID and fetch the avatar thumbnail
 			local executorUserId = executor.UserId
 			local success, thumbnail = pcall(function()
 				return Players:GetUserThumbnailAsync(executorUserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size420x420)
