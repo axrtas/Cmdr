@@ -8,7 +8,6 @@ return function(context, distance)
 	local lookVector = rootPart.CFrame.LookVector
 	local newPosition = rootPart.Position + (lookVector * distance)
 
-	-- Obstruction check
 	local region = Region3.new(
 		newPosition - Vector3.new(2, 2, 2),
 		newPosition + Vector3.new(2, 2, 2)
