@@ -3,7 +3,6 @@ return function(context, avatarType, targetPlayer)
 		targetPlayer = context.Executor
 	end
 
-	-- Ensure the player has a character
 	if not targetPlayer.Character then
 		return targetPlayer.Name .. " has no character."
 	end
@@ -11,9 +10,7 @@ return function(context, avatarType, targetPlayer)
 	local character = targetPlayer.Character
 	local humanoid = character:FindFirstChildOfClass("Humanoid")
 
-	-- Check if humanoid exists
 	if humanoid then
-		-- Switch to R6
 		if avatarType == "R6" then
 			if humanoid.RigType ~= Enum.HumanoidRigType.R6 then
 				local description = game.Players:GetHumanoidDescriptionFromUserId(targetPlayer.UserId)
@@ -26,7 +23,6 @@ return function(context, avatarType, targetPlayer)
 			else
 				return targetPlayer.Name .. " already has an R6 avatar."
 			end
-			-- Switch to R15
 		elseif avatarType == "R15" then
 			if humanoid.RigType ~= Enum.HumanoidRigType.R15 then
 				local description = game.Players:GetHumanoidDescriptionFromUserId(targetPlayer.UserId)
