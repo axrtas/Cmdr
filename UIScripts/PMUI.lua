@@ -35,20 +35,17 @@ pmEvent.OnClientEvent:Connect(function(senderName, message)
 
 		pmGui.Enabled = true
 
-		-- Start position off-screen on the right
 		mainFrame.Position = UDim2.new(1, 50, 1, -mainFrame.Size.Y.Offset - 50)
 
-		-- Animate to the bottom-right corner
 		mainFrame:TweenPosition(UDim2.new(0.85, 0, 1, -mainFrame.Size.Y.Offset - 50), "Out", "Quad", 0.5, true)
 
 		Sound:Play()
 
 		wait(5)
 
-		-- Animate back to the right side, off-screen
 		mainFrame:TweenPosition(UDim2.new(1, 50, 1, -mainFrame.Size.Y.Offset - 50), "In", "Quad", 0.5, true)
 
-		wait(0.5)  -- Wait for animation to finish
+		wait(0.5)
 		pmGui.Enabled = false
 	end
 end)
