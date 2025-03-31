@@ -1,4 +1,3 @@
--- Client-Side Script: Handles UI display, animations, and countdown for warning
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
@@ -15,10 +14,9 @@ warnEvent.OnClientEvent:Connect(function(adminName, message)
 		local adminLabel = mainFrame:FindFirstChild("ExecutorName")
 		local adminImage = mainFrame:FindFirstChild("PlayerThumbnail")
 		local messageLabel = mainFrame:FindFirstChild("TextLabel")
-		local countdownLabel = mainFrame:FindFirstChild("Countdown") -- Countdown Label
+		local countdownLabel = mainFrame:FindFirstChild("Countdown")
 		local sound = mainFrame:FindFirstChild("Sound")
 
-		-- Update the labels with the executor's name and message
 		adminLabel.Text = adminName
 		messageLabel.Text = message
 
@@ -37,32 +35,25 @@ warnEvent.OnClientEvent:Connect(function(adminName, message)
 		else
 			adminImage.Image = "rbxassetid://12345678"
 		end
-		-- Show the warning GUI
 		warnGui.Enabled = true
 
-		-- Start position off-screen
 		mainFrame.Position = UDim2.new(0.5, -mainFrame.Size.X.Offset / 2, 1, 0)
 
-		-- Animate to the center
 		mainFrame:TweenPosition(UDim2.new(0.5, -mainFrame.Size.X.Offset / 2, 0.5, -mainFrame.Size.Y.Offset / 2), "Out", "Quad", 0.5, true)
 
-		-- Play sound
 		sound:Play()
 
-		-- Countdown Timer (5 seconds)
 		local countdownTime = 10
 		while countdownTime > 0 do
-			-- Display the countdown with one decimal place
 			countdownLabel.Text = string.format("%.1f", countdownTime)
 
-			wait(0.1)  -- Wait for 0.1 seconds
+			wait(0.1)
 			countdownTime = countdownTime - 0.1
 		end
 
-		-- After countdown finishes, hide the warning
 		mainFrame:TweenPosition(UDim2.new(0.5, -mainFrame.Size.X.Offset / 2, 1, 0), "In", "Quad", 0.5, true)
 
-		wait(0.5)  -- Wait for animation to finish
+		wait(0.5)
 		warnGui.Enabled = false
 	end
 end)
