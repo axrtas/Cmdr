@@ -1,5 +1,3 @@
--- DataStore Script: Handles storing and retrieving warning counts and reasons
-
 game.Players.PlayerAdded:Connect(function(plr)
 local DataStoreService = game:GetService("DataStoreService")
 local warnDataStore = DataStoreService:GetDataStore("PlayerWarnings") -- DataStore for storing warnings
